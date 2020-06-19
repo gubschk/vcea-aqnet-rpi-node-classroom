@@ -1,0 +1,14 @@
+[Unit]
+Description= COVIDK30 logging service
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 30
+ExecStart=/usr/sbin/COVID-k30-logger
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
+

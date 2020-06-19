@@ -1,0 +1,12 @@
+[Unit]
+Description=BME280 logging service
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/bme280_logger
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
