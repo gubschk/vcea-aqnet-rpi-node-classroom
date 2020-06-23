@@ -139,10 +139,11 @@ for the OPC-N2 (in contradiction to the software repo readme).
 	
 #### Enabling wifi on the WSU Wireless Network
 
-	1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.                Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
+       1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.
+       Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
        security reasons please email Kristian Gubsch (gubschk@gmail.com) for the supplicant file or navigate to the /etc/wpa_supplicant directory on another Pi to obtain the 
        wifi credentials.
-	2. Run the command "sudo reboot" 
+       2. Run the command "sudo reboot" 
 
 ### COVID_Code_Master_File_k30plotting
 This folder contains the code to configure the CO2 sensor and have it plot data in real time. Follow the steps below to configure the sensors and have them automatically log data to /var/log/wsn and run/aqnet/CO2_plot on boot.
