@@ -113,18 +113,49 @@ for the OPC-N2 (in contradiction to the software repo readme).
     11. `cd py-opc && sudo python setup.py install`
     12. `sudo apt-get install python-pandas`
     
+    
+### WSU Wifi and VNC Configuration
+
+### VNC
+	1. Run the commands "sudo apt-get update" and "sudo apt-get upgrade"
+	2. Install the VNC server with sudo apt-get install tightvncserver
+	3. Set up and run the server by running the command "vncserver :1"
+	4. To start the software automatically, run the command "sudo nano /etc/rc.local" and before the "exit 0" line, enter the code "su - pi -c '/usr/bin/vncserver :1'"
+	5. Restart the Pi with "sudo reboot"
+	6. Confirm the vnc server is running with the command "vncserver :1" and it should say "A vnc server is already running"
+	7. Enter IP address in VNC viewer program
+	The password for all VNC servers is lar2020
+
+### Enabling copy/paste from remote to local machine (https://www.youtube.com/watch?v=npiX-11kBUU)
+	
+	1. Run the command "sudo apt-get install autocutsel"
+	2. Edit the xstartup file with the command "nano /home/pi/.vnc/startup"
+	3. Type the words "autocutsel -fork" right beneath the words "xsetroot -solid grey"
+	4. Restart the Raspberry Pi to enable copy/paste
+
+#### Enabling plotting over Matplotlib to the VNCserver 
+
+	1. Use the command "xhost +localHost"
+	
+#### Enabling wifi on the WSU Wireless Network
+
+	1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.                Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
+       security reasons please email Kristian Gubsch (gubschk@gmail.com) for the supplicant file or navigate to the /etc/wpa_supplicant directory on another Pi to obtain the 
+       wifi credentials.
+	2. Run the command "sudo reboot" 
+
+### COVID_Code_Master_File_k30plotting
+This folder contains the code to configure the CO2 sensor and have it plot data in real time. Follow the steps below to configure the sensors and have them automatically log data to /var/log/wsn and run/aqnet/CO2_plot on boot.
+
 ### CO2 sensor Configuration
 1. Open a Linux terminal on the Raspberry Pi
-2. Navigate to COVID_Code_Master_File/Logger_files/urbanova-aqnet-proto directory in the terminal
-3. Run the command "sudo sh COVID-install.sh"
-4. Navigate to /var/log/wsn to ensure the CO2 sensor is logging.
+2. Navigate to /home/pi/Documents/COVID_Code_Master_File_k30plotting/Logger_files/urbanova-aqnet-proto directory in the terminal
+3. Run the command "sudo sh COVID-install-plotting.sh"
+4. Navigate to /var/log/wsn to ensure the CO2 sensor is logging. A new file with the current timestamp should have appeared in this directory
 
-### COVID_Code_Master_File
-This folder contains the code to configure the CO2 sensor, OPC, and BME_280. Follow the steps below to configure the sensors and have them automatically log data to /var/log/wsn on boot.
+###CO2 Sensor realtime plotting
+1. Open a Linux terminal and navigate to the /home/pi/Documents/COVID_Code_Master_File_k30plotting/Logger_files/urbanova-aqnet-proto directory/bin directory. 
+2. Run the commmand "xhost +localHost" to enable viewing on the VNC client.
+3. Run the command "sudo python k30-plotter.py" and a real time plot of CO2 data should appear on the screen.
 
-### Multisensor Configuration
-1. Follow the Initial Setup steps above
-2. Open a Linux Terminal on the Raspberry Pi
-3. Navigate to the COVID_Code_Master_File_Multisensor/Logger_files/urbanova-aqnet-proto directory in the terminal
-4. Run the command "sudo sh COVID-multisensor-install.sh"
-5. Navigate to /var/log/wsn to ensure the sensors are logging
+
