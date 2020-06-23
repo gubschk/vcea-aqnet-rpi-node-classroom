@@ -117,33 +117,32 @@ for the OPC-N2 (in contradiction to the software repo readme).
 ### WSU Wifi and VNC Configuration
 
 ### VNC
-	1. Run the commands "sudo apt-get update" and "sudo apt-get upgrade"
-	2. Install the VNC server with sudo apt-get install tightvncserver
-	3. Set up and run the server by running the command "vncserver :1"
-	4. To start the software automatically, run the command "sudo nano /etc/rc.local" and before the "exit 0" line, enter the code "su - pi -c '/usr/bin/vncserver :1'"
-	5. Restart the Pi with "sudo reboot"
-	6. Confirm the vnc server is running with the command "vncserver :1" and it should say "A vnc server is already running"
-	7. Enter IP address in VNC viewer program
-	The password for all VNC servers is lar2020
+1. Run the commands "sudo apt-get update" and "sudo apt-get upgrade"
+2. Install the VNC server with sudo apt-get install tightvncserver
+3. Set up and run the server by running the command "vncserver :1"
+4. To start the software automatically, run the command "sudo nano /etc/rc.local" and before the "exit 0" line, enter the code "su - pi -c '/usr/bin/vncserver :1'"
+5. Restart the Pi with "sudo reboot"
+6. Confirm the vnc server is running with the command "vncserver :1" and it should say "A vnc server is already running"
+7. Enter IP address in VNC viewer program
+The password for all VNC servers is lar2020
 
 ### Enabling copy/paste from remote to local machine (https://www.youtube.com/watch?v=npiX-11kBUU)
 	
-	1. Run the command "sudo apt-get install autocutsel"
-	2. Edit the xstartup file with the command "nano /home/pi/.vnc/startup"
-	3. Type the words "autocutsel -fork" right beneath the words "xsetroot -solid grey"
-	4. Restart the Raspberry Pi to enable copy/paste
+1. Run the command "sudo apt-get install autocutsel"
+2. Edit the xstartup file with the command "nano /home/pi/.vnc/xstartup"
+3. Type the words "autocutsel -fork" right beneath the words "xsetroot -solid grey"
+4. Restart the Raspberry Pi to enable copy/paste
 
 #### Enabling plotting over Matplotlib to the VNCserver 
 
-	1. Use the command "xhost +localHost"
+1. Use the command "xhost +localHost"
 	
 #### Enabling wifi on the WSU Wireless Network
-
-       1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.
-       Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
-       security reasons please email Kristian Gubsch (gubschk@gmail.com) for the supplicant file or navigate to the /etc/wpa_supplicant directory on another Pi to obtain the 
-       wifi credentials.
-       2. Run the command "sudo reboot" 
+1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.
+Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
+security reasons please email Kristian Gubsch (gubschk@gmail.com) for the supplicant file or navigate to the /etc/wpa_supplicant directory on another Pi to obtain the 
+wifi credentials.
+2. Run the command "sudo reboot" 
 
 ### COVID_Code_Master_File_k30plotting
 This folder contains the code to configure the CO2 sensor and have it plot data in real time. Follow the steps below to configure the sensors and have them automatically log data to /var/log/wsn and run/aqnet/CO2_plot on boot.
