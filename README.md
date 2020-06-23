@@ -153,7 +153,7 @@ This folder contains the code to configure the CO2 sensor and have it plot data 
 3. Run the command "sudo sh COVID-install-plotting.sh"
 4. Navigate to /var/log/wsn to ensure the CO2 sensor is logging. A new file with the current timestamp should have appeared in this directory
 
-###CO2 Sensor realtime plotting
+### CO2 Sensor realtime plotting
 1. Open a Linux terminal and navigate to the /home/pi/Documents/COVID_Code_Master_File_k30plotting/Logger_files/urbanova-aqnet-proto directory/bin directory. 
 2. Run the commmand "xhost +localHost" to enable viewing on the VNC client.
 3. Run the command "sudo python k30-plotter.py" and a real time plot of CO2 data should appear on the screen.
