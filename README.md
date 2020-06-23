@@ -29,6 +29,15 @@ for the OPC-N2 (in contradiction to the software repo readme).
 > In practice, the Pi can source 1.5A through it's 5V GPIO pins. You are
 > therefore advised to power the OPC-N2 through the Pi. 
 
+#### Enabling wifi on the WSU Wireless Network
+
+1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.
+Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
+security reasons please email Kristian Gubsch (gubschk@gmail.com) for the supplicant file or navigate to the /etc/wpa_supplicant directory on another Pi to obtain the 
+wifi credentials.
+
+2. Run the command "sudo reboot" 
+
 ### Initial Setup
 
 1. Purchase a 128-GB Sandisk Ultra microSDXC UHS-1 memory card (with adapter).
@@ -114,7 +123,7 @@ for the OPC-N2 (in contradiction to the software repo readme).
     12. `sudo apt-get install python-pandas`
     
     
-### WSU Wifi and VNC Configuration
+### VNC Configuration
 
 ### VNC
 1. Run the commands "sudo apt-get update" and "sudo apt-get upgrade"
@@ -136,13 +145,6 @@ The password for all VNC servers is lar2020
 #### Enabling plotting over Matplotlib to the VNCserver 
 
 1. Use the command "xhost +localHost"
-	
-#### Enabling wifi on the WSU Wireless Network
-1. Copy and paste the wpa_supplicant.conf file from the current directory to /etc/wpa_supplicant/ using the command "sudo cp" followed by the appropriate directory.
-Alternatively, use the command "sudo pcmanfm" and manually copy and paste the file to the /etc/wpa_supplicant/ directory.For 
-security reasons please email Kristian Gubsch (gubschk@gmail.com) for the supplicant file or navigate to the /etc/wpa_supplicant directory on another Pi to obtain the 
-wifi credentials.
-2. Run the command "sudo reboot" 
 
 ### COVID_Code_Master_File_k30plotting
 This folder contains the code to configure the CO2 sensor and have it plot data in real time. Follow the steps below to configure the sensors and have them automatically log data to /var/log/wsn and run/aqnet/CO2_plot on boot.
